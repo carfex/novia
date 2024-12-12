@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <title>Tengo que contarte algo importante</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: rgb(230, 223, 223);
+        color: #333;
+        width: 100vw;
+        height: 100dvh;
+        font-family: "Indie Flower", cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 3s background ease;
+      }
+      .bg-morado {
+        background: rgb(174, 15, 223) !important;
+        /* background: linear-gradient(to bottom right, rgb(174, 15, 223), rgb(174, 15, 223)); */
+      }
+      .bg-azul {
+        /* background: linear-gradient(to bottom right, rgb(174, 15, 223), rgb(15, 64, 223)); */
+        /* rgb(15, 64, 223) */
+        background: rgb(15, 64, 223) !important;
+      }
+      .bg-morado-azul {
+        background: linear-gradient(to bottom right, rgb(174, 15, 223), rgb(15, 64, 223)) !important;
+      }
+      .section1 {
+        h1 {
+          text-align: center;
+        }
+        .span-1 {
+          font-size: 2rem;
+        }
+        .span-2 {
+          font-size: 3.5rem;
+        }
+        .span-3 {
+          font-size: 2.5rem;
+        }
+        .span-4 {
+          font-size: 2rem;
+        }
+        button {
+          width: 75px;
+          height: 30px;
+          border: none;
+          border-radius: 15px;
+          color: rgb(230, 223, 223);
+          background: rgb(174, 15, 223);
+          /* color: ; */
+          margin-top: 20px;
+          cursor: pointer;
+          &:hover {
+            background: #090909c3;
+          }
+        }
+      }
+      .letras {
+        max-width: 95vw;
+        margin: auto;
+        text-align: center;
+
+        span {
+          font-size: 3.5rem;
+        }
+      }
+      .meme-final {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        height: 100vh;
+        text-align: center;
+      }
+      .desactivado {
+        display: none;
+      }
+      .oculto {
+        visibility: hidden;
+      }
+      .fondo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+        transition: .3s all ease;
+        /* background: url('./image1.jpg') no-repeat center;
+        background-size: cover;  */
+      }
+      .fondo2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        width: 100vw;
+        height: 100vh;
+        background: rgb(230, 223, 223);
+        /* opacity: .65; */
+        transition: 3s background ease;
+      }
+      .section3 {
+        /* display: flex; */
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        color: #ebebeb;
+      }
+      .section3 .buttons {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .section3 .buttons .si {
+        margin-right: 30px;
+        padding: 5px 10px;
+        background: #ff1f1f;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .section3 .buttons .no {
+        margin-right: 30px;
+        padding: 5px 10px;
+        background: #757575;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .perdon-text {
+        width: 95%;
+        margin: auto;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+    </style>
+    <script type="module">
+      const $ = (e) => document.getElementById(e);
+      const section1 = $("s1");
+      const btn = $("btn");
+      const audio = $("myAudio");
+
+      const section2 = $("s2");
+      const pLetras = $("pLetras");
+
+      const letrasConfig = [
+        { palabras: ["Recuerdo", "Aquel dia"], tiempo: 0 },
+        { palabras: ["Como si fuera", "Hoy"], tiempo: 4100, image: './recuerdo.png' },
+        { palabras: ["No hay nada", "Como ella"], tiempo: 8100, image: './ella.jpg' },
+        { palabras: ["Ni siquiera", "me encontro"], tiempo: 11700, image: './ella2.jpg' },
+        { palabras: ["Recuerdo", "todavia"], tiempo: 18800, image: './d3.jpg' },
+        { palabras: ["La vez que", "la bese"], tiempo: 22500, image: './d4.jpg' },
+        { palabras: ["Fue mi primer", "amor"], tiempo: 26500, image: './d5.jpg' },
+        { palabras: ["Y ahora escribo", "su cancion..."], tiempo: 29500 },
+
+        { palabras: ["HAY ALGO", "MAS"], tiempo: 36000, image: './mirada3.jpg' },
+        { palabras: ["INEXPLICABLE", "COMO"], tiempo: 38900, image: './mirada.jpg' },
+        { palabras: ["SU", "MIRADA"], tiempo: 40000, image: './mirada2.jpg' },
+        { palabras: ["Inigualable como", "La manera"], tiempo: 43500, image: './inexplicable.jpg' },
+        { palabras: ["En que", "Me cela"], tiempo: 47000, image: './cela.jpg' },
+        { palabras: ["Y trata", "De disimular"], tiempo: 49700, image: './trata.jpg' },
+        { palabras: ["Que no", "Esta mal"], tiempo: 51500, image: './mal.jpg' },
+
+        { palabras: ["Voy a cuidarte", "Por las noches"], tiempo: 55000, image: './cuidarte.jpg' },
+        { palabras: ["Voy a amarte", "Sin reproches"], tiempo: 59000, image: './amarte.jpg' },
+        { palabras: ["Te voy a", "Extrañar"], tiempo: 63200, image: './extrañar.jpg' },
+        { palabras: ["En la", "Tempestad"], tiempo: 65500, image: './tempestad.jpg' },
+        { palabras: ["Y aun que existan", "Mil razones"], tiempo: 67500, image: './perfil1.jpg' },
+        { palabras: ["Para", "Renunciar"], tiempo: 69200, image: './perfil2.jpg' },
+
+        { palabras: ["No hay", "Nadie Mas"], tiempo: 71500, image: './nadie1.jpg' },
+        { palabras: ["No hay", "Nadie Mas"], tiempo: 76500, image: './nadie2.jpg', esUltimo: true },
+
+      ];
+
+      document.querySelector('.no').addEventListener('click', e => {
+        location.reload();
+      });
+
+      document.querySelector('.si').addEventListener('click', e => {
+        document.querySelector('.buttons').style.display = 'none';
+        document.querySelector('#me-perdonas').style.display = 'none';
+        document.querySelector('.perdon-text').innerHTML = "Muchas gracias mi amor Te amoooooooooo 🥰💝❤️💖";
+        document.querySelector('.perdon-text').style.textTransform = "uppercase";
+      });
+
+      btn.addEventListener("click", () => {
+        document.body.style.color = "#ebebeb";
+        section1.classList.add("desactivado");
+        section2.classList.remove("desactivado");
+
+        document.querySelector('.fondo2').classList.add("bg-morado");
+        
+
+        audio.volume = 1.0;
+        audio.play();
+        mostrarLetras(letrasConfig);
+
+        const D_ColorAnimate = () => {
+          document.querySelector('.fondo2').style.transition = "1s background ease-in-out";
+          setTimeout(() => {
+              const fondo = document.querySelector('.fondo2');
+              if (fondo.classList.contains('bg-morado')) {
+                fondo.classList.add("bg-azul");
+                fondo.classList.remove("bg-morado");
+              } else {
+                fondo.classList.add("bg-morado");
+                fondo.classList.remove("bg-azul");
+                
+              }
+              D_ColorAnimate();
+          }, 1000);
+        }
+        setTimeout(() => {
+          D_ColorAnimate();
+        }, 36000);
+
+        // setTimeout(() => {
+          // const D_fondo = document.querySelector('.fondo');
+          // D_fondo.style.background = "url('./image1.jpg')";
+          // D_fondo.style.backgroundRepeat = "no-repet";
+          // D_fondo.style.backgroundPosition = "center";
+          // D_fondo.style.backgroundSize = "cover";
+          // D_fondo.style.opacity = ".5";
+        // }, 4100);
+
+      });
+
+      
+
+      function mostrarLetras(config) {
+        config.forEach((letraObj) => {
+          setTimeout(() => {
+            pLetras.innerHTML = "";
+
+            const span1 = document.createElement("span");
+            span1.textContent = letraObj.palabras[0];
+            pLetras.appendChild(span1);
+
+            const saltoDeLinea = document.createElement("br");
+            pLetras.appendChild(saltoDeLinea);
+
+            if (letraObj.image) {
+              const D_fondo = document.querySelector('.fondo');
+              D_fondo.style.background = "url('"+ letraObj.image +"')";
+              D_fondo.style.backgroundRepeat = "no-repet";
+              D_fondo.style.backgroundPosition = "center";
+              D_fondo.style.backgroundSize = "cover";
+              D_fondo.style.opacity = ".5";
+            } else {
+              const D_fondo = document.querySelector('.fondo');
+              D_fondo.style.opacity = "0";
+            }
+
+            if (letraObj.esUltimo) {
+              setTimeout(() => {
+                // pLetras.innerHTML = "";
+                // const gif = document.createElement("img");
+                // gif.setAttribute('width', '350');
+                // const span = document.createElement("span");
+                // span.setAttribute('.perdon-text');
+                // // const span2 = document.createElement("span");
+                // const saltoDeLinea = document.createElement("br");
+
+                // // span.innerHTML = "FELIZ CASI <br />🎄 NAVIDAD 🎄";
+                // span.innerHTML = "asdasdasdasd";
+                // // gif.src = "./image1.jpg";
+                // pLetras.appendChild(span);
+                // pLetras.appendChild(saltoDeLinea);
+                // // pLetras.appendChild(gif);
+                // pLetras.classList.add("meme-final");
+                const D_fondo = document.querySelector('.fondo');
+                D_fondo.style.opacity = "0";
+                D_fondo.style.background = "";
+                document.querySelector('.section2').style.display = 'none';
+                document.querySelector('.section3').style.display = 'flex';
+                const fondo = document.querySelector('.fondo2');
+                fondo.classList.remove('bg-morado');
+                fondo.classList.remove('bg-azul');
+                fondo.classList.add("bg-morado-azul");
+                
+              }, 4000);
+            } else {
+              const span2 = document.createElement("span");
+              span2.textContent = letraObj.palabras[1];
+              span2.classList.add("oculto");
+              pLetras.appendChild(span2);
+
+              setTimeout(() => {
+                span2.classList.remove("oculto");
+              }, 750);
+            }
+          }, letraObj.tiempo);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="fondo" data-image="./image1.jpg">
+
+    </div>
+    <div class="fondo2">
+
+    </div>
+    <div class="section1" id="s1">
+      <h1>
+        <span class="span-1">Para</span><br />
+        <span class="span-2">la novia mas hermosa</span><br />
+        <span class="span-3">del mundo</span><br />
+        <span class="span-4">tengo que decirte que...</span><br />
+        <button id="btn">Ver 💜</button>
+      </h1>
+    </div>
+    <div class="section2 desactivado" id="s2">
+      <audio
+        id="myAudio"
+        src="./audio.mp3"
+        preload="auto"
+        class="desactivado"
+      ></audio>
+      <p class="letras" id="pLetras">Hola</p>
+    </div>
+    <div class="section3">
+      <div class="perdon-text">Lamento mucho haber lastimado a la chica mas preciosa y hermosa del mundo, eres muy importante para mi y quiero hacerte siempre feliz, cuidarte como mi tesoro, sacarte una sonrisa cada dia de tu vida... Te amo Diana Maria Rojas Basto</div>
+      <h2 id="me-perdonas">¿Me perdonas? 🥺</h2>
+      <div class="buttons">
+        <div class="si">Shi 🥰</div>
+        <div class="no">No 😔</div>
+      </div>
+    </div>
+  </body>
+</html>
