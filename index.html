@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <title>Tengo que contarte algo importante</title>
+    <title>My love ❤️</title>
     <style>
       * {
         margin: 0;
@@ -24,17 +24,20 @@
         align-items: center;
         transition: 3s background ease;
       }
-      .bg-morado {
-        background: rgb(174, 15, 223) !important;
+      .bg-rojo {
+        background: rgb(236, 5, 5) !important;
         /* background: linear-gradient(to bottom right, rgb(174, 15, 223), rgb(174, 15, 223)); */
       }
-      .bg-azul {
+      .bg-rojoB {
         /* background: linear-gradient(to bottom right, rgb(174, 15, 223), rgb(15, 64, 223)); */
         /* rgb(15, 64, 223) */
-        background: rgb(15, 64, 223) !important;
+        background: rgb(206, 8, 8) !important;
       }
-      .bg-morado-azul {
-        background: linear-gradient(to bottom right, rgb(174, 15, 223), rgb(15, 64, 223)) !important;
+      .bg-rojo-rojoB {
+        /* background: linear-gradient(to bottom right, rgb(174, 15, 223), rgb(15, 64, 223)) !important; */
+        background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%) !important;
+
+
       }
       .section1 {
         h1 {
@@ -58,7 +61,7 @@
           border: none;
           border-radius: 15px;
           color: rgb(230, 223, 223);
-          background: rgb(174, 15, 223);
+          background: rgb(233, 17, 17);
           /* color: ; */
           margin-top: 20px;
           cursor: pointer;
@@ -80,7 +83,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center; 
+        align-items: center;
         height: 100vh;
         text-align: center;
       }
@@ -159,31 +162,32 @@
 
       const letrasConfig = [
         { palabras: ["Recuerdo", "Aquel dia"], tiempo: 0 },
-        { palabras: ["Como si fuera", "Hoy"], tiempo: 4100, image: './recuerdo.png' },
-        { palabras: ["No hay nada", "Como ella"], tiempo: 8100, image: './ella.jpg' },
-        { palabras: ["Ni siquiera", "me encontro"], tiempo: 11700, image: './ella2.jpg' },
-        { palabras: ["Recuerdo", "todavia"], tiempo: 18800, image: './d3.jpg' },
-        { palabras: ["La vez que", "la bese"], tiempo: 22500, image: './d4.jpg' },
-        { palabras: ["Fue mi primer", "amor"], tiempo: 26500, image: './d5.jpg' },
+        { palabras: ["Como si fuera", "Hoy"], tiempo: 4100 },
+        { palabras: ["No hay nada", "Como ella"], tiempo: 8100 },
+        { palabras: ["Ni siquiera", "me encontro"], tiempo: 11700 },
+        { palabras: ["Recuerdo", "todavia"], tiempo: 18800 },
+        { palabras: ["La vez que", "la bese"], tiempo: 22500 },
+        { palabras: ["Fue mi primer", "amor"], tiempo: 26500 },
         { palabras: ["Y ahora escribo", "su cancion..."], tiempo: 29500 },
 
-        { palabras: ["HAY ALGO", "MAS"], tiempo: 36000, image: './mirada3.jpg' },
-        { palabras: ["INEXPLICABLE", "COMO"], tiempo: 38900, image: './mirada.jpg' },
-        { palabras: ["SU", "MIRADA"], tiempo: 40000, image: './mirada2.jpg' },
-        { palabras: ["Inigualable como", "La manera"], tiempo: 43500, image: './inexplicable.jpg' },
-        { palabras: ["En que", "Me cela"], tiempo: 47000, image: './cela.jpg' },
-        { palabras: ["Y trata", "De disimular"], tiempo: 49700, image: './trata.jpg' },
-        { palabras: ["Que no", "Esta mal"], tiempo: 51500, image: './mal.jpg' },
+        { palabras: ["HAY ALGO", "MAS"], tiempo: 36000, image: './imgs/33102.jpg' },
+        { palabras: ["INEXPLICABLE", "COMO"], tiempo: 38900, image: './imgs/33102.jpg' },
+        { palabras: ["SU", "MIRADA"], tiempo: 40000, image: './imgs/1455.jpg' },
+        { palabras: ["Inigualable como", "La manera"], tiempo: 43500, image: './imgs/1455.jpg' },
+        { palabras: ["En que", "Me cela"], tiempo: 47000, image: './imgs/1692.jpg' },
+        { palabras: ["Y trata", "De disimular"], tiempo: 49700, image: './imgs/1692.jpg' },
+        { palabras: ["Que no", "Esta mal"], tiempo: 51500, image: './imgs/4450.jpg' },
 
-        { palabras: ["Voy a cuidarte", "Por las noches"], tiempo: 55000, image: './cuidarte.jpg' },
-        { palabras: ["Voy a amarte", "Sin reproches"], tiempo: 59000, image: './amarte.jpg' },
-        { palabras: ["Te voy a", "Extrañar"], tiempo: 63200, image: './extrañar.jpg' },
-        { palabras: ["En la", "Tempestad"], tiempo: 65500, image: './tempestad.jpg' },
-        { palabras: ["Y aun que existan", "Mil razones"], tiempo: 67500, image: './perfil1.jpg' },
-        { palabras: ["Para", "Renunciar"], tiempo: 69200, image: './perfil2.jpg' },
+        { palabras: ["Voy a cuidarte", "Por las noches"], tiempo: 55000, image: './imgs/12574.jpg' },
+        { palabras: ["Voy a amarte", "Sin reproches"], tiempo: 59000, image: './imgs/12574.jpg' },
+        { palabras: ["Te voy a", "Extrañar"], tiempo: 63200, image: './imgs/57324.jpg' },
+        { palabras: ["En la", "Tempestad"], tiempo: 65500, image: './imgs/57324.jpg' },
+        { palabras: ["Y aun que existan", "Mil razones"], tiempo: 67500, image: './imgs/834040.jpg' },
+        { palabras: ["Para", "Renunciar"], tiempo: 69200, image: './imgs/834040.jpg' },
 
-        { palabras: ["No hay", "Nadie Mas"], tiempo: 71500, image: './nadie1.jpg' },
-        { palabras: ["No hay", "Nadie Mas"], tiempo: 76500, image: './nadie2.jpg', esUltimo: true },
+        { palabras: ["No hay", "Nadie Mas"], tiempo: 71500, image: './imgs/2150984255.jpg' },
+        { palabras: ["No hay", "Nadie Mas"], tiempo: 76500, image: './imgs/2151025347.jpg', },
+        { palabras: ["", ""], tiempo: 80500, image: './imgs/2151025347.jpg', esUltimo: true },
 
       ];
 
@@ -203,7 +207,7 @@
         section1.classList.add("desactivado");
         section2.classList.remove("desactivado");
 
-        document.querySelector('.fondo2').classList.add("bg-morado");
+        document.querySelector('.fondo2').classList.add("bg-rojo");
         
 
         audio.volume = 1.0;
@@ -214,12 +218,12 @@
           document.querySelector('.fondo2').style.transition = "1s background ease-in-out";
           setTimeout(() => {
               const fondo = document.querySelector('.fondo2');
-              if (fondo.classList.contains('bg-morado')) {
-                fondo.classList.add("bg-azul");
-                fondo.classList.remove("bg-morado");
+              if (fondo.classList.contains('bg-rojo')) {
+                fondo.classList.add("bg-rojoB");
+                fondo.classList.remove("bg-rojo");
               } else {
-                fondo.classList.add("bg-morado");
-                fondo.classList.remove("bg-azul");
+                fondo.classList.add("bg-rojo");
+                fondo.classList.remove("bg-rojoB");
                 
               }
               D_ColorAnimate();
@@ -228,15 +232,6 @@
         setTimeout(() => {
           D_ColorAnimate();
         }, 36000);
-
-        // setTimeout(() => {
-          // const D_fondo = document.querySelector('.fondo');
-          // D_fondo.style.background = "url('./image1.jpg')";
-          // D_fondo.style.backgroundRepeat = "no-repet";
-          // D_fondo.style.backgroundPosition = "center";
-          // D_fondo.style.backgroundSize = "cover";
-          // D_fondo.style.opacity = ".5";
-        // }, 4100);
 
       });
 
@@ -257,10 +252,10 @@
             if (letraObj.image) {
               const D_fondo = document.querySelector('.fondo');
               D_fondo.style.background = "url('"+ letraObj.image +"')";
-              D_fondo.style.backgroundRepeat = "no-repet";
               D_fondo.style.backgroundPosition = "center";
               D_fondo.style.backgroundSize = "cover";
-              D_fondo.style.opacity = ".5";
+              D_fondo.style.backgroundRepeat = "no-repeat";
+              D_fondo.style.opacity = ".7";
             } else {
               const D_fondo = document.querySelector('.fondo');
               D_fondo.style.opacity = "0";
@@ -268,32 +263,17 @@
 
             if (letraObj.esUltimo) {
               setTimeout(() => {
-                // pLetras.innerHTML = "";
-                // const gif = document.createElement("img");
-                // gif.setAttribute('width', '350');
-                // const span = document.createElement("span");
-                // span.setAttribute('.perdon-text');
-                // // const span2 = document.createElement("span");
-                // const saltoDeLinea = document.createElement("br");
-
-                // // span.innerHTML = "FELIZ CASI <br />🎄 NAVIDAD 🎄";
-                // span.innerHTML = "asdasdasdasd";
-                // // gif.src = "./image1.jpg";
-                // pLetras.appendChild(span);
-                // pLetras.appendChild(saltoDeLinea);
-                // // pLetras.appendChild(gif);
-                // pLetras.classList.add("meme-final");
                 const D_fondo = document.querySelector('.fondo');
                 D_fondo.style.opacity = "0";
                 D_fondo.style.background = "";
                 document.querySelector('.section2').style.display = 'none';
                 document.querySelector('.section3').style.display = 'flex';
                 const fondo = document.querySelector('.fondo2');
-                fondo.classList.remove('bg-morado');
-                fondo.classList.remove('bg-azul');
-                fondo.classList.add("bg-morado-azul");
+                fondo.classList.remove('bg-rojo');
+                fondo.classList.remove('bg-rojoB');
+                fondo.classList.add("bg-rojo-rojoB");
                 
-              }, 4000);
+              }, 100);
             } else {
               const span2 = document.createElement("span");
               span2.textContent = letraObj.palabras[1];
@@ -318,11 +298,11 @@
     </div>
     <div class="section1" id="s1">
       <h1>
-        <span class="span-1">Para</span><br />
-        <span class="span-2">la novia mas hermosa</span><br />
-        <span class="span-3">del mundo</span><br />
-        <span class="span-4">tengo que decirte que...</span><br />
-        <button id="btn">Ver 💜</button>
+        <span class="span-1">Tengo</span><br />
+        <span class="span-2">algo importante</span><br />
+        <span class="span-3">que</span><br />
+        <span class="span-4">decirte...</span><br />
+        <button id="btn">Ver ❤️</button>
       </h1>
     </div>
     <div class="section2 desactivado" id="s2">
@@ -335,10 +315,10 @@
       <p class="letras" id="pLetras">Hola</p>
     </div>
     <div class="section3">
-      <div class="perdon-text">Lamento mucho haber lastimado a la chica mas preciosa y hermosa del mundo, eres muy importante para mi y quiero hacerte siempre feliz, cuidarte como mi tesoro, sacarte una sonrisa cada dia de tu vida... Te amo Diana Maria Rojas Basto</div>
+      <div class="perdon-text"></div>
       <h2 id="me-perdonas">¿Me perdonas? 🥺</h2>
       <div class="buttons">
-        <div class="si">Shi 🥰</div>
+        <div class="si">Si 🥰</div>
         <div class="no">No 😔</div>
       </div>
     </div>
