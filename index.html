@@ -104,6 +104,12 @@
         transition: .3s all ease;
         /* background: url('./image1.jpg') no-repeat center;
         background-size: cover;  */
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
       .fondo2 {
         position: absolute;
@@ -161,7 +167,7 @@
       const pLetras = $("pLetras");
 
       const letrasConfig = [
-        { palabras: ["Recuerdo", "Aquel dia"], tiempo: 0 },
+        { palabras: ["Recuerdo", "Aquel dia"], tiempo: 0, image: './imgs/33102.jpg' },
         { palabras: ["Como si fuera", "Hoy"], tiempo: 4100 },
         { palabras: ["No hay nada", "Como ella"], tiempo: 8100 },
         { palabras: ["Ni siquiera", "me encontro"], tiempo: 11700 },
@@ -235,7 +241,9 @@
 
       });
 
-      
+      const image = new Image();
+      image.src = "./imgs/33102.jpg";
+
 
       function mostrarLetras(config) {
         config.forEach((letraObj) => {
@@ -251,10 +259,11 @@
 
             if (letraObj.image) {
               const D_fondo = document.querySelector('.fondo');
-              D_fondo.style.background = "url('"+ letraObj.image +"')";
-              D_fondo.style.backgroundPosition = "center";
-              D_fondo.style.backgroundSize = "cover";
-              D_fondo.style.backgroundRepeat = "no-repeat";
+              D_fondo.insertAdjacentElement("afterbegin", image);
+              // D_fondo.style.background = "url('"+ letraObj.image +"')";
+              // D_fondo.style.backgroundPosition = "center";
+              // D_fondo.style.backgroundSize = "cover";
+              // D_fondo.style.backgroundRepeat = "no-repeat";
               D_fondo.style.opacity = ".7";
             } else {
               const D_fondo = document.querySelector('.fondo');
@@ -290,7 +299,7 @@
     </script>
   </head>
   <body>
-    <div class="fondo" data-image="./image1.jpg">
+    <div class="fondo">
 
     </div>
     <div class="fondo2">
