@@ -109,6 +109,10 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
+          display: none;
+        }
+        img.show {
+          display: block;
         }
       }
       .fondo2 {
@@ -167,7 +171,7 @@
       const pLetras = $("pLetras");
 
       const letrasConfig = [
-        { palabras: ["Recuerdo", "Aquel dia"], tiempo: 0, image: './imgs/33102.jpg' },
+        { palabras: ["Recuerdo", "Aquel dia"], tiempo: 0 },
         { palabras: ["Como si fuera", "Hoy"], tiempo: 4100 },
         { palabras: ["No hay nada", "Como ella"], tiempo: 8100 },
         { palabras: ["Ni siquiera", "me encontro"], tiempo: 11700 },
@@ -208,6 +212,18 @@
         document.querySelector('.perdon-text').style.textTransform = "uppercase";
       });
 
+      let images = []
+
+      letrasConfig.map(item => {
+        if (!images.includes(item.image)) {
+          images = [...images, item.image]
+
+          const image = new Image();
+          image.src = item.image;
+          document.querySelector('.fondo').insertAdjacentElement("beforeend", image);
+        }
+      });
+
       btn.addEventListener("click", () => {
         document.body.style.color = "#ebebeb";
         section1.classList.add("desactivado");
@@ -241,9 +257,7 @@
 
       });
 
-      const image = new Image();
-      image.src = "./imgs/33102.jpg";
-
+      
 
       function mostrarLetras(config) {
         config.forEach((letraObj) => {
@@ -259,7 +273,13 @@
 
             if (letraObj.image) {
               const D_fondo = document.querySelector('.fondo');
-              D_fondo.insertAdjacentElement("afterbegin", image);
+              document.querySelectorAll('.fondo img').forEach(el => {
+                if (el.getAttribute("src") == letraObj.image) {
+                  el.classList.add('show');
+                } else {
+                  el.classList.remove('show');
+                }
+              });
               // D_fondo.style.background = "url('"+ letraObj.image +"')";
               // D_fondo.style.backgroundPosition = "center";
               // D_fondo.style.backgroundSize = "cover";
